@@ -1,6 +1,7 @@
-## angular2-seed
+# angular2-sample-project
+# work in progress...
+Sample Angular project 
 
-A simple starter project demonstrating the basic concepts of Angular 2.
 
 
 ### Usage
