@@ -11,14 +11,13 @@ import { AppService } from '../service/service';
 })
 export class SaveWordComponent implements OnInit {
   saveForm: FormGroup;
+  message:String;
+  showMsg: boolean = false;
   constructor(private formBuilder: FormBuilder, private appService: AppService) {}
 
   ngOnInit() {
+    this.showMsg = false;
     this.saveForm = this.formBuilder.group({
-      /*name: ['', Validators.required],
-      email: ['', [Validators.required, CustomValidators.validateEmail]],
-      content: ['', [Validators.required, Validators.minLength(10)]]*/
-
         date: [new Date(),Validators.required],
         word:['',Validators.required],
         meaning: ['',Validators.required],
@@ -30,12 +29,20 @@ export class SaveWordComponent implements OnInit {
     if(this.saveForm.valid){
         let date = this.saveForm.value.date;
 
-        this.appService.getWords().subscribe((data)=>{
+        this.appService.saveWord(this.saveForm.value).subscribe((resp)=>{
+          this.showMsg = true;
+          this.message = "Save Successful";
+          /*this.appService.getWords().subscribe((data)=>{
             console.log(data);
             data.forEach((word) => console.log(word.word));
-        }, (err)=>{
-            console.log(err);
+          }, (err)=>{
+              console.log(err);
+          });*/
+        },(err)=>{
+          this.showMsg = true;
+          this.message = "Error while save";
         });
+        
     }else{
         console.log("Form is not valid");
     }

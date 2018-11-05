@@ -19,14 +19,22 @@ export class AppService {
     public getWords(): Observable<Word[]> {
         let headers = new Headers();
         return this.http
-            .get('http://localhost:8080/RESTfulProject/REST/WebService/d')
+            .get('http://localhost:8080/api/words')
             .map(response => {
                 const words = response.json();
                 console.log(words);
-                return words.map((word) => new Word(word.word, word.meaning, word.sentence));
+                return words;
 
             })
             .catch(this.handleError);
+    }
+    public saveWord(data: any): Observable<any>{
+        let wordDetails = {
+            "word": data.word,
+            "meaning": data.meaning,
+            "sentence": data.sentence
+        };
+        return this.http.post('http://localhost:8080/api/saveword',wordDetails).catch(this.handleError);
     }
     private handleError(error: Response | any) {
         console.error('ApiService::handleError', error);

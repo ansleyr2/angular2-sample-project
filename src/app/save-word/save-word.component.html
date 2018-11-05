@@ -1,27 +1,8 @@
 <h2>Save new word</h2>
-
-<!-- <form (ngSubmit)="submitForm()" [formGroup]="contactForm" novalidate>
-  <div class="form-content">
-    <label>
-      Name:
-      <input type="text" formControlName="name" class="sd-form-control" placeholder="Enter your name.">
-    </label>
-    <label>
-      Email:
-      <input type="email" formControlName="email" class="sd-form-control" placeholder="Enter your email.">
-    </label>
-    <label>
-      Content:
-      <textarea formControlName="content" class="sd-form-control" placeholder="Content here."></textarea>
-    </label>
-    <div class="form-submit">
-      <button type="submit">Submit</button>
-    </div>
-  </div>
-</form> -->
-
-
-<div>
+<div *ngIf ="showMsg">
+  {{message}}
+</div>
+<div *ngIf = "!showMsg">
   <form class="" (ngSubmit)="submitForm()" [formGroup]="saveForm" novalidate>
 	<!-- <form class="contact_form" name="inputForm" ng-submit="validateInput(inputForm)" novalidate> -->
 			<!-- <h1>Save Word</h1> -->
@@ -52,18 +33,4 @@
 			<div class="clear"></div>
 		</form>
 </div>
-
-<!-- <div class="form-value">
-  Form value:
-  <pre>
-    {{contactForm.value | json}}
-  </pre>
-  <p>
-    Status: {{contactForm.status}}
-  </p>
-  <p>
-    Valid: {{contactForm.valid}}
-  </p>
-  <p>Submit then open console to see full form.</p>
-</div> -->
 
