@@ -9,23 +9,19 @@ import { HttpModule } from '@angular/http';
 
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-//import { RepoBrowserComponent } from './github/repo-browser/repo-browser.component';
-//import { RepoListComponent } from './github/repo-list/repo-list.component';
-//import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
 import { SaveWordComponent } from './save-word/save-word.component';
+import { WordListComponent } from './word-list/word-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    //RepoBrowserComponent,
-    //RepoListComponent,
-    //RepoDetailComponent,
     HomeComponent,
     ContactComponent,
-    SaveWordComponent
+    SaveWordComponent,
+    WordListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +31,6 @@ import { SaveWordComponent } from './save-word/save-word.component';
     RouterModule.forRoot(rootRouterConfig, { useHash: true })
   ],
   providers: [
-    //GithubService
   ],
   bootstrap: [ AppComponent ]
 })

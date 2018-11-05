@@ -1,0 +1,15 @@
+<h1>This is word list component</h1>
+<div *ngIf="wordList.length>0">
+    <table>
+        <tr>
+            <th>Word</th>
+            <th>Meaning</th>
+            <th>Example sentence</th>
+        </tr>
+        <tr *ngFor = "let word of wordList">
+            <td>{{word.word}}</td>
+            <td>{{word.meaning}}</td>
+            <td>{{word.sentence}}</td>
+        </tr>
+    </table>
+</div>
