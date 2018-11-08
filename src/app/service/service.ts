@@ -34,7 +34,7 @@ export class AppService {
             "meaning": data.meaning,
             "sentence": data.sentence
         };
-        return this.http.post('http://localhost:8080/api/saveword',wordDetails).catch(this.handleError);
+        return this.http.post('http://localhost:8080/api/words/saveword',wordDetails).catch(this.handleError);
     }
     private handleError(error: Response | any) {
         console.error('ApiService::handleError', error);
